@@ -9,7 +9,6 @@ local nvlsp = require "nvchad.configs.lspconfig"
 -- Enable completion (nvim-cmp) and configure folding (nvim-ufo)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
@@ -26,6 +25,9 @@ end
 
 -- Python
 lspconfig.pylsp.setup{
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
   settings = {
     pylsp = {
       plugins = {

@@ -5,7 +5,7 @@ vim.api.nvim_clear_autocmds({ group = lastplace })
 vim.api.nvim_create_autocmd("BufReadPost", {
     group = lastplace,
     pattern = { "*" },
-    desc = "remember last cursor place",
+    desc = "Remember last cursor place",
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
         local lcount = vim.api.nvim_buf_line_count(0)
@@ -15,5 +15,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
